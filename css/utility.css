@@ -1,0 +1,202 @@
+.border {
+  border: 2px solid red;
+  margin: 3px;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.bg-black {
+  color: white;
+  background-color: black;
+}
+
+.invert {
+  filter: invert(1);
+}
+
+.bg-gray{
+    background-color: #121212;
+}
+
+.rounded{
+    border-radius: 7px;
+}
+
+.m-1{
+    margin: 5px;
+}
+
+.p-1{
+    padding: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+  
+::-webkit-scrollbar-thumb {
+    background-color: #333; /* Dark color for the thumb */
+    border-radius: 6px;
+}
+  
+::-webkit-scrollbar-track {
+    background-color: #222; /* Dark color for the track */
+}
+
+html{
+    scrollbar-color: #333 #222;
+}
+ /* Dark color for the thumb and track in Firefox */
+
+ /* console.log("Let's Write javaScript");
+let currentSong = new Audio();
+let songs;
+let currentFolder;
+function secondsToMinutesSeconds(seconds) {
+  if (isNaN(seconds) || seconds < 0) {
+    return "00:00";
+  }
+
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = Math.floor(seconds % 60);
+
+  const formattedSeconds = String(remainingSeconds).padStart(2, "0");
+
+  return `${minutes}:${formattedSeconds}`;
+}
+async function getSongs(folder) {
+  currentFolder = folder;
+  let a = await fetch(`http://127.0.0.1:3000/${folder}/`);
+  let response = await a.text();
+  let div = document.createElement("div");
+  div.innerHTML = response;
+  let as = div.getElementsByTagName("a");
+  let songs = [];
+  for (let index = 0; index < as.length; index++) {
+    const element = as[index];
+    if (element.href.endsWith(".mp3")) {
+      songs.push(element.href.split(`$/{folder}/`)[1]);
+    }
+  }
+  return songs;
+}
+
+const playMusic = (track, pause = false) => {
+  currentSong.src = `/${currentFolder}/` + track;
+  if (!pause) {
+    currentSong.play();
+    play.src = "pause.svg";
+  }
+  document.querySelector(".songinfo").innerHTML = decodeURI(track);
+  document.querySelector(".songtime").innerHTML = "00:00 / 00:00";
+};
+
+async function main() {
+  // Get the list of all songs
+  songs = await getSongs("C:songs\ncs");
+  playMusic(songs[0], true);
+
+  //Show all the songs in playlist
+  let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0];
+  for (const song of songs) {
+      songUL.innerHTML = songUL.innerHTML + `<li><img class="invert" width="34" src="img/music.svg" alt="">
+                          <div class="info">
+                              <div> ${song.replaceAll("%20", " ")}</div>
+                              <div>Harry</div>
+                          </div>
+                          <div class="playnow">
+                              <span>Play Now</span>
+                              <img class="invert" src="img/play.svg" alt="">
+                          </div> </li>`;
+  }
+
+  // Attach event listener to all the songs
+  Array.from(
+    document.querySelector(".songlist").getElementsByTagName("li")
+  ).forEach((e) => {
+    e.addEventListener("click", () => {
+      console.log(e.querySelector(".info").firstElementChild.innerHTML);
+      playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim());
+    });
+  });
+
+  // Attach event listener to play button
+  play.addEventListener("click", () => {
+    if (currentSong.paused) {
+      currentSong.play();
+      play.src = "pause.svg";
+    } else {
+      currentSong.pause();
+      play.src = "play.svg";
+    }
+  });
+
+  // Listen for timeupdate event
+  currentSong.addEventListener("timeupdate", () => {
+    let duration = currentSong.duration;
+    let currentTime = currentSong.currentTime;
+    document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(
+      currentTime
+    )} / ${secondsToMinutesSeconds(duration)}`;
+    document.querySelector(".circle").style.left =
+      (currentSong.currentTime / currentSong.duration) * 100 + "%";
+  });
+
+  // Add an event listener to the seekbar
+  document.querySelector(".seekbar").addEventListener("click", (e) => {
+    let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
+    document.querySelector(".circle").style.left = percent + "%";
+    currentSong.currentTime = currentSong.duration * (percent / 100);
+  });
+
+  // Add an event listener to the hamburger
+  document.querySelector(".hamburger").addEventListener("click", () => {
+    document.querySelector(".left").style.left = "0px";
+  });
+
+  // Add an event listener to the close button
+  document.querySelector(".close").addEventListener("click", () => {
+    document.querySelector(".left").style.left = "-120%";
+  });
+
+  // Add event listener to the previous buttons
+  previous.addEventListener("click", () => {
+    console.log("Previous Clicked");
+    let index = songs.indexOf(currentSong.src.split("/").splice(-1)[0]);
+    if (index - 1 > length) {
+      playMusic(songs[index - 1]);
+    }
+  });
+
+  // Add event listener to the next button
+  next.addEventListener("click", () => {
+    console.log("Next Clicked");
+    currentSong.pause();
+    let index = songs.indexOf(currentSong.src.split("/").splice(-1)[0]);
+    if (index + 1 < songs.length) {
+      playMusic(songs[index + 1]);
+    }else{
+      playMusic(songs[0]);
+    }
+  });
+
+  // Add event listener to the volume button
+  document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e)=>{
+    console.log("Setting volume to ", e.target.value ,"/ 100");
+    currentSong.volume = parseInt(e.target.value)/100;
+  })
+}
+
+main(); */
+
+
